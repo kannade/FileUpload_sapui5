@@ -1,0 +1,26 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="alfa.hr.ess.FilesUploads.controller.App" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" width="100%" id="__layout0">
+						<sap.ui.layout:content>
+							<UploadCollection instantUpload="true" uploadUrl="{ParamMdl>/AttachmentUploadUrl}" id="uplCollId" uploadComplete="onUploadComplete"
+								beforeUploadStarts="onBeforeUploadStarts" uploadTerminated="onUploadTerminated" fileDeleted="onFileDeleted" items="{ path: '/Files' }"
+								multiple="true">
+								<items>
+									<UploadCollectionItem documentId="{filename}" url="{url}" fileName="{filename}" mimeType="{mimetype}" attributes="{path : 'attributes', templateShareable : false}">
+										<attributes>
+											<ObjectAttribute title="{title}" text="{path : 'text', formatter : '.formatAttribute'}" active="{active}" press="onAttributePress"/>
+										</attributes>
+									</UploadCollectionItem>
+								</items>
+							</UploadCollection>
+						</sap.ui.layout:content>
+					</sap.ui.layout:VerticalLayout>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
